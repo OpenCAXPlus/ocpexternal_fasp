@@ -37,4 +37,4 @@ configurations: # list of configs that is referred in by the versions
   - id: "superlu" # if no dependencies are listed, then use the default value
     run: configurations/superlu # must have a run to specify which script to run
     dependencies: ["SuperLU@6.0.0@default"]
-    arguments: ["@version","@uid"]
+    arguments: ["SuperLU@version","SuperLU@configuration"]

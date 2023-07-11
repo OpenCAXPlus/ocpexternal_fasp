@@ -10,5 +10,5 @@ build_dir="$script_dir/../build/$config"
 install_dir="$script_dir/../install/$config"
 
 mkdir -p $install_dir
-cmake -S $source_dir -B $build_dir -DFASP_INSTALL_PREFIX=$install_dir
+cmake -S $source_dir -B $build_dir -DFASP_INSTALL_PREFIX=$install_dir -GNinja
 cmake --build $build_dir --target install
