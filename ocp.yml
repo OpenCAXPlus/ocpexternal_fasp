@@ -3,15 +3,14 @@ uid: fasp # the unique identifier for the program the find the external project,
 type: external # the current project type, could be external or toolkit, or starter
 licenses: ["LGPLv3"] # the external project's licenses
 default: # set some default values
-  version: "2.2.0" # the default version to be installed if not specified in the command
+  version: "2.2.1" # the default version to be installed if not specified in the command
   configuration: "default" # the default config if not specified 
   scripts: ["prepare", "publish", "check"] # some scripts that you can run 
 versions: # list of all versions, to make this easier for human to read there should be no hidden parts for each item
-  - id: "2.2.0" # the version number this will be used in the tar.xz file's name
+  - id: "2.2.1" # the version number this will be used in the tar.xz file's name
     default: "default" # override the default configurations
     scripts:  ["prepare", "publish", "check"] # override the default scripts
     configurations: ["default","superlu"]
-  - id: "2.0.0" # if nothing is specified, then the scripts, and configurations value will be taken from default part
 scripts: # some scripts that developers may run
   - id: prepare # id is used as a reference for others to find this script
     run: scripts/prepare # run gives you the script to run (without extension)
