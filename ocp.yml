@@ -10,7 +10,7 @@ versions: # list of all versions, to make this easier for human to read there sh
   - id: "2.2.0" # the version number this will be used in the tar.xz file's name
     default: "default" # override the default configurations
     scripts:  ["prepare", "publish", "check"] # override the default scripts
-    configurations: ["default","umfpack"]
+    configurations: ["default","superlu"]
   - id: "2.0.0" # if nothing is specified, then the scripts, and configurations value will be taken from default part
 scripts: # some scripts that developers may run
   - id: prepare # id is used as a reference for others to find this script
@@ -23,14 +23,18 @@ scripts: # some scripts that developers may run
     run: scripts/check
     arguments: ["@version","@uid"]
 dependencies: # some dependencies that will be later referred by the configurations
-  - id: SuiteSparse # id is how the dependencies can be later referred
-    uid: suitesparse # uid is the unique identifier that we use to locate the tar.xz file 
+  - id: SuperLU # id is how the dependencies can be later referred
+    uid: superlu # uid is the unique identifier that we use to locate the tar.xz file 
     type: external #
     versions: # multiple version may be allowed
-      - id : "7.1.0" # this id is the same as the id in the dependency's ocp.yml file versions part
+      - id : "6.0.0" # this id is the same as the id in the dependency's ocp.yml file versions part
         default: "default" # set a default config, if it is not specified
         configurations: ["default"] # these are the configuration id of the external uid
 configurations: # list of configs that is referred in by the versions
   - id: "default" # if no dependencies are listed, then use the default value
     run: configurations/default # must have a run to specify which script to run
+    arguments: ["@version","@uid"]
+  - id: "superlu" # if no dependencies are listed, then use the default value
+    run: configurations/superlu # must have a run to specify which script to run
+    dependencies: ["SuperLU@6.0.0@default"]
     arguments: ["@version","@uid"]
