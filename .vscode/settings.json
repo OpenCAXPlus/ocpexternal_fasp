@@ -1,5 +1,9 @@
 {
     "yaml.schemas": {
+        "/home/xcheng/code/OpenCAXPlus/ocpexternal/ocp.schema.json": [
+            "ocp.yml",
+            "file:///home/xcheng/code/OpenCAXPlus/ocpexternal_fasp/ocp.yml"
+        ],
         "${workspaceFolder}/ocp.schema.json": [
             "file://${workspaceFolder}/ocp.yml"
         ]

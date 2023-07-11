@@ -2,14 +2,14 @@
 # You should modify this script to prepare the folder structure for external project source codes
 # The source code must be in ocp/external/external_id/version/source folder
 # get command line arguments
-version=${1}
-external_id=${2}
+version=${1:-"2.2.0"}
+external_id=${2:-"fasp"}
 
 # prepare necessary variables
-url="https://github.com/gabime/spdlog/archive/refs/tags/v$version.tar.gz"
+url="https://github.com/FaspDevTeam/faspsolver/archive/refs/tags/$version.tar.gz"
 dir="ocp/external/$external_id/$version/source"
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
-gz_file="$external_id-v$version.tar.gz"
+gz_file="$external_id-$version.tar.gz"
 # move to the root of the external repository
 cd $script_dir/..
 
@@ -24,7 +24,7 @@ echo "Create ocp folder structure"
 tar -xzf $gz_file -C $dir --strip-components=1
 echo "Extract files to ocp folder"
 
-cp -r config "$dir/.."
+cp -r configurations "$dir/.."
 echo "Copy all configurations to ocp folder"
 cp ocp.yml "$dir/.."
 echo "Copy ocp.yml to ocp folder"

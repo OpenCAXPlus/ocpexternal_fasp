@@ -9,5 +9,6 @@ source_dir="$script_dir/../source"
 build_dir="$script_dir/../build/$config"
 install_dir="$script_dir/../install/$config"
 
-cmake -S $source_dir -B $build_dir -DCMAKE_INSTALL_PREFIX=$install_dir
+mkdir -p $install_dir
+cmake -S $source_dir -B $build_dir -DFASP_INSTALL_PREFIX=$install_dir
 cmake --build $build_dir --target install

@@ -1,4 +1,4 @@
-name: External Build
+name: FASP Build
 defaults:
   run:
     shell: bash -ileo pipefail {0}
@@ -8,11 +8,11 @@ on:
       id:
         description: "Software id"
         required: true
-        default: "spdlog"
+        default: "fasp"
       version:
         description: "Software version"
         required: true
-        default: "1.11.0"
+        default: "2.2.0"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,7 +25,5 @@ jobs:
         uses: actions/checkout@v3
       - name: Prepare and Install
         run: |
-          external_id=spdlog
-          external_version=1.11.0
-          source scripts/prepare.sh $external_version $external_id
-          source ocp/external/$external_id/$external_version/config/default.sh
+          source scripts/prepare.sh ${{ github.event.inputs.version }} ${{ github.event.inputs.id }}
+          source ocp/external/${{ github.event.inputs.id }}/${{ github.event.inputs.version }}/configurations/default.sh

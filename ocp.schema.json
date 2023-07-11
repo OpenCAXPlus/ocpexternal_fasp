@@ -44,7 +44,12 @@
             }
           ]
         }
-      }
+      },
+      "required": [
+        "version",
+        "configuration",
+        "scripts"
+      ]
     },
     "dependencies": {
       "type": "array",
@@ -81,15 +86,19 @@
                         }
                       ]
                     }
-                  }
+                  },
+                  "required": [
+                    "id"
+                  ]
                 }
               ]
             }
           },
           "required": [
             "id",
+            "uid",
             "type",
-            "version"
+            "versions"
           ]
         }
       ]
@@ -150,9 +159,7 @@
             }
           },
           "required": [
-            "id",
-            "default",
-            "configurations"
+            "id"
           ]
         }
       ]
@@ -191,7 +198,6 @@
     "type",
     "licenses",
     "default",
-    "dependencies",
     "configurations",
     "versions",
     "scripts"

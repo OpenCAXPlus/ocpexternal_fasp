@@ -1,4 +1,4 @@
-name: spdlog Publish
+name: FASP Publish
 defaults:
   run:
     shell: bash -ileo pipefail {0}
@@ -8,11 +8,11 @@ on:
       id:
         description: "Software id"
         required: true
-        default: "spdlog"
+        default: "fasp"
       version:
         description: "Software version"
         required: true
-        default: "1.11.0"
+        default: "2.2.0"
 jobs:
   build:
     runs-on: ubuntu-latest

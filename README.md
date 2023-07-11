@@ -1,8 +1,6 @@
-# OpenCAX+ External Template
+# OpenCAX+ External Project: FASP
 
-This is a template repository for external dependencies of the OpenCAX+ projects.
-
-External dependencies are used for both toolkits or starters of the OpenCAX+ SDK.
+The FASP repository is located [here](https://github.com/FaspDevTeam/faspsolver).
 
 ## Learn how to create the external project for OpenCAX+
 
@@ -10,12 +8,12 @@ Read our tutorial or watch the tutorial video (both coming soon).
 
 ## Things that you need to modify
 
-- [ ] This README.md file, also remember to add the workflow badge
-- [ ] The workflow yml files, change the name of workflow
-- [ ] The ocp.yml file
-- [ ] scripts/prepare.sh
-- [ ] scripts/install.sh
-- [ ] Create any new configurations build and install script in the config folder
+- [x] This README.md file, also remember to add the workflow badge
+- [x] The workflow yml files, change the name of workflow
+- [x] The ocp.yml file
+- [x] scripts/prepare.sh
+- [x] scripts/install.sh
+- [x] Create any new configurations build and install script in the config folder
 
 ## Things you need to check before publish the external project
 
