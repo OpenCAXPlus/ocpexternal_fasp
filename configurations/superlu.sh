@@ -11,14 +11,14 @@ config=$(basename "${BASH_SOURCE[0]}" .sh)
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
 root="$script_dir/.."
 source_dir="$script_dir/../source"
-build_dir="$script_dir/../build/$config"
-install_dir="$script_dir/../install/$config"
+build_dir="$script_dir/../build/$OCP_COMPILER/$config"
+install_dir="$script_dir/../install/$OCP_COMPILER/$config"
 
 mkdir -p $install_dir
 # cmake -S $source_dir -B $build_dir -DFASP_INSTALL_PREFIX=$install_dir -DUSE_SUPERLU=ON -DSUPERLU_DIR=$HOME/ocp/external/superlu/6.0.0/install/default/lib/cmake/superlu -GNinja
 # export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/ocp/external/superlu/6.0.0/install/default/lib
 
-dir=$HOME/ocp/external/superlu/$SuperLU_version/install/$SuperLU_configuration
+dir=$HOME/ocp/external/superlu/$SuperLU_version/install/$OCP_COMPILER/$SuperLU_configuration
 cmake -S $source_dir -B $build_dir -GNinja \
     -DFASP_INSTALL_PREFIX=$install_dir \
     -DUSE_SUPERLU=ON \
